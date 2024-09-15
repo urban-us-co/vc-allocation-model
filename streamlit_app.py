@@ -30,10 +30,10 @@ st.sidebar.header("Venture Fund Parameters")
 # Allow user to input capital raised
 total_capital = st.sidebar.number_input(
     'Total Capital Raised (in $)',
-    min_value=10_000_000,
-    max_value=200_000_000,
-    value=100_000_000,
-    step=5_000_000,
+    min_value=5_000_000,
+    max_value=250_000_000,
+    value=50_000_000,
+    step=2_500_000,
     help="The total amount of capital raised for the venture fund."
 )
 
@@ -68,7 +68,7 @@ target_new_investments = st.sidebar.number_input(
     'Target Number of New Investments',
     min_value=1,
     max_value=100,
-    value=25,
+    value=35,
     step=1,
     help="Total number of new investments to be made during the initial investment period."
 )
@@ -98,7 +98,7 @@ initial_investment_amount = st.sidebar.number_input(
     min_value=100_000,
     max_value=min(max_investment_per_company, total_capital),
     value=1_000_000,
-    step=100_000,
+    step=50_000,
     help=f"The amount invested in each company during the initial investment (Max: ${max_investment_per_company:,.0f})."
 )
 
@@ -125,7 +125,7 @@ follow_on_investment_amount = st.sidebar.number_input(
     min_value=100_000,
     max_value=min(max_investment_per_company, total_capital),
     value=500_000,
-    step=100_000,
+    step=50_000,
     help=f"The amount invested in each company during follow-on rounds (Max per company total investment: ${max_investment_per_company:,.0f})."
 )
 
@@ -137,7 +137,7 @@ liquidation_preferences = st.sidebar.number_input(
     'Liquidation Preferences Multiplier',
     min_value=1.0,
     max_value=2.0,
-    value=1.5,
+    value=1.0,
     step=0.1,
     help="Multiplier for liquidation preferences (e.g., 1.5x preference)."
 )
@@ -155,11 +155,11 @@ redemption_rights_influence = st.sidebar.slider(
 # Median post-money valuation
 median_post_money_valuation = st.sidebar.number_input(
     'Median Post-Money Valuation ($)',
-    min_value=10_000_000,
+    min_value=5_000_000,
     max_value=100_000_000,
-    value=50_000_000,
-    step=5_000_000,
-    help="Median post-money valuation for investments."
+    value=10_000_000,
+    step=1_000_000,
+    help="Median post-money valuation for initial investments."
 )
 
 # Valuation cap discount

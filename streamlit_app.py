@@ -176,14 +176,16 @@ valuation_cap_discount = st.sidebar.slider(
 st.sidebar.header("Strategic Adjustments")
 
 # Sidebar inputs for better_deal_terms_multiplier
-better_deal_terms_multiplier = st.sidebar.slider(
-    'Better Deal Terms Multiplier',
-    min_value=1.0,
-    max_value=2.0,
-    value=1.2,
-    step=0.1,
-    help="Multiplier to increase expected returns due to better deal terms."
-)
+#better_deal_terms_multiplier = st.sidebar.slider(
+#    'Better Deal Terms Multiplier',
+#    min_value=-2.0,
+#    max_value=2.0,
+#    value=1.0,
+#    step=0.1,
+#    help="Multiplier to increase expected returns due to better deal terms."
+#)
+## Should be a discount for lost access to some deals due to better terms in a more competitive market
+
 
 # Sidebar inputs for active_involvement_success_increase
 active_involvement_success_increase = st.sidebar.slider(
@@ -282,7 +284,7 @@ def adjust_outcomes(df):
     # Adjust returns for better deal terms and network exit multiplier
     adjusted_df['Adjusted Outcome Metric'] = (
         adjusted_df['Outcome Metric'] *
-        better_deal_terms_multiplier *
+        #better_deal_terms_multiplier *
         network_exit_multiplier *
         vc_transaction_data['valuation_cap_discount']
     )
